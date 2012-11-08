@@ -3,11 +3,12 @@
 set -u
 set -e
 
-HEALTH_CHECK_LOCATION='/home/vagrant/health_check'
-USER='vagrant'
+HEALTH_CHECK_USER='vagrant'
+HEALTH_CHECK_LOCATION="/home/$HEALTH_CHECK_USER/health_check"
+
 
 INIT_RBENV='export PATH=$PATH:$HOME/.rbenv/bin; eval "$(rbenv init -)"'
 
 CMD="$INIT_RBENV; cd $HEALTH_CHECK_LOCATION; ruby health_check.rb"
 
-su - $USER -c "$CMD";
+su - $HEALTH_CHECK_USER -c "$CMD";
