@@ -1,0 +1,8 @@
+#!/bin/bash
+INIT_DIR='/etc/init'
+
+cp health_check.conf $INIT_DIR
+sudo chown root:root $INIT_DIR/health_check.conf
+sudo echo "`pwd`/start_health_check" >> $INIT_DIR/health_check.conf
+sudo stop health_check
+sudo start health_check

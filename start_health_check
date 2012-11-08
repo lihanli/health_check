@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -u
+set -e
+
+HEALTH_CHECK_LOCATION='/home/vagrant/health_check'
+USER='vagrant'
+
+INIT_RBENV='export PATH=$PATH:$HOME/.rbenv/bin; eval "$(rbenv init -)"'
+
+CMD="$INIT_RBENV; cd $HEALTH_CHECK_LOCATION; ruby health_check.rb"
+
+su - $USER -c "$CMD";
