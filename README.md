@@ -43,6 +43,7 @@ credentials you want to use from the box you are using to run this service. Make
 the email goes through.
 
 
+Install and start the service
 ```
 $ ./install
 ```
