@@ -6,6 +6,8 @@ start_health_check_script = {
   filename: 'start_health_check'
 }
 
+`bundle`
+
 start_health_check_script[:code] = <<-eos
   #!/bin/bash
 
@@ -14,7 +16,7 @@ start_health_check_script[:code] = <<-eos
 
   INIT_RBENV='export PATH=$PATH:$HOME/.rbenv/bin; eval "$(rbenv init -)"'
 
-  CMD="$INIT_RBENV; cd '#{Dir.pwd}'; ruby health_check.rb"
+  CMD="$INIT_RBENV; cd '#{Dir.pwd}'; bundle exec ruby health_check.rb"
 
   su - #{ENV['USER']} -c "$CMD";
 eos

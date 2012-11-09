@@ -1,6 +1,9 @@
+require 'rubygems'
 require 'net/http'
 require 'uri'
 require './sites'
+require 'gmail'
+require './gmail_credentials'
 
 TIME_BETWEEN_CHECKS = 900
 TIMEOUT = 30
@@ -17,8 +20,13 @@ while true
     rescue Timeout::Error, Errno::EINVAL, Errno::ECONNRESET, Errno::ETIMEDOUT,
            EOFError, SocketError, Net::HTTPBadResponse, Net::HTTPHeaderSyntaxError,
            Net::HTTP::Persistent::Error, Net::ProtocolError => e
-      # TODO email
-      puts "#{site} down"
+
+      Gmail.new(GMAIL[:username], GMAIL[:password]) do |gmail|
+        gmail.deliver do
+          to GMAIL[:notifications_addr]
+          subject "#{site} down"
+        end
+      end
     end
   end
   sleep TIME_BETWEEN_CHECKS
