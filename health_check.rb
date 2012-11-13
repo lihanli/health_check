@@ -28,6 +28,7 @@ while true
       end
     end
   end
+  puts '================='
   sleep TIME_BETWEEN_CHECKS
 end
 
