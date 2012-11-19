@@ -5,7 +5,7 @@ require 'gmail'
 require './gmail_credentials'
 
 TIME_BETWEEN_CHECKS = 900
-TIMEOUT = 30
+TIMEOUT = 15
 
 while true
   SITES.each do |site|
@@ -19,11 +19,11 @@ while true
     rescue Timeout::Error, Errno::EINVAL, Errno::ECONNRESET, Errno::ETIMEDOUT,
            EOFError, SocketError, Net::HTTPBadResponse, Net::HTTPHeaderSyntaxError,
            Net::HTTP::Persistent::Error, Net::ProtocolError => e
-
       Gmail.new(GMAIL[:username], GMAIL[:password]) do |gmail|
         gmail.deliver do
           to GMAIL[:notifications_addr]
           subject "#{site} down"
+          body    "#{e.class}: #{e.to_s}"
         end
       end
     end
