@@ -10,7 +10,7 @@ TIMEOUT = 15
 while true
   SITES.each do |site|
     begin
-      uri = URI.parse(site)
+      uri  = URI.parse(site)
       http = Net::HTTP.new(uri.host, uri.port)
       http.read_timeout, http.open_timeout = TIMEOUT, TIMEOUT
       code = http.request(Net::HTTP::Get.new(uri.request_uri)).code.to_i
