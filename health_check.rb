@@ -5,7 +5,7 @@ require 'gmail'
 require './gmail_credentials'
 
 TIME_BETWEEN_CHECKS = 900
-TIMEOUT = 15
+TIMEOUT = 30
 
 while true
   SITES.each do |site|
