@@ -3,11 +3,14 @@ require 'uri'
 require './sites'
 require 'gmail'
 require './gmail_credentials'
+require 'active_support/all'
 
 TIME_BETWEEN_CHECKS = 900
 TIMEOUT = 30
 
 while true
+  puts Time.now.in_time_zone('Eastern Time (US & Canada)').strftime('%l:%M%p %b %e, %Y').strip
+
   SITES.each do |site|
     begin
       uri  = URI.parse(site)
@@ -28,7 +31,7 @@ while true
       end
     end
   end
-  puts '================='
+  puts "=================\n"
   sleep TIME_BETWEEN_CHECKS
 end
 
