@@ -10,6 +10,7 @@ GIT
 GEM
   remote: http://rubygems.org/
   specs:
+    gadfly (0.0.1)
     i18n (0.6.1)
     mail (2.4.4)
       i18n (>= 0.4.0)
@@ -27,4 +28,5 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  gadfly (= 0.0.1)
   ruby-gmail!
