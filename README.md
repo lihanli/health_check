@@ -7,7 +7,7 @@ Installs as an upstart background service.
 
 #### Requirements
 
-* rbenv with ruby 1.9.x installed
+* rbenv with ruby >= 1.9.2 installed
 * linux with upstart installed (installed by default on ubuntu)
 * gmail account to send emails
 

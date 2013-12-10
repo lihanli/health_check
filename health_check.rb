@@ -17,7 +17,7 @@ while true
       http = Net::HTTP.new(uri.host, uri.port)
       http.read_timeout, http.open_timeout = TIMEOUT, TIMEOUT
       code = http.request(Net::HTTP::Get.new(uri.request_uri)).code.to_i
-      raise Net::HTTPBadResponse unless (code >= 200) && (code < 400)
+      raise Net::HTTPBadResponse if code >= 400
       puts "#{site} up"
     rescue Timeout::Error, Errno::EINVAL, Errno::ECONNRESET, Errno::ETIMEDOUT,
            EOFError, SocketError, Net::HTTPBadResponse, Net::HTTPHeaderSyntaxError,
