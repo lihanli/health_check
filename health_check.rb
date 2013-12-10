@@ -19,9 +19,7 @@ while true
       code = http.request(Net::HTTP::Get.new(uri.request_uri)).code.to_i
       raise Net::HTTPBadResponse if code >= 400
       puts "#{site} up"
-    rescue Timeout::Error, Errno::EINVAL, Errno::ECONNRESET, Errno::ETIMEDOUT,
-           EOFError, SocketError, Net::HTTPBadResponse, Net::HTTPHeaderSyntaxError,
-           Net::HTTP::Persistent::Error, Net::ProtocolError => e
+    rescue Exception => e
       Gmail.new(GMAIL[:username], GMAIL[:password]) do |gmail|
         gmail.deliver do
           to GMAIL[:notifications_addr]
