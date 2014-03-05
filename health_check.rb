@@ -1,9 +1,8 @@
-require 'net/http'
-require 'uri'
 require './sites'
 require 'gmail'
 require './gmail_credentials'
 require 'active_support/all'
+require 'httparty'
 
 TIME_BETWEEN_CHECKS = 900
 TIMEOUT = 30
@@ -13,10 +12,7 @@ while true
 
   SITES.each do |site|
     begin
-      uri  = URI.parse(site)
-      http = Net::HTTP.new(uri.host, uri.port)
-      http.read_timeout, http.open_timeout = TIMEOUT, TIMEOUT
-      code = http.request(Net::HTTP::Get.new(uri.request_uri)).code.to_i
+      code = HTTParty.get(site, timeout: TIMEOUT).code.to_i
       raise Net::HTTPBadResponse if code >= 400
       puts "#{site} up"
     rescue Exception => e
