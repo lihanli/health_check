@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/dcparker/ruby-gmail.git
-  revision: cd8fc2ba291de1b07ffba23266e4814dc8ea7117
+  revision: f8c2651f19cb41d9efb9029e01b281a609ffe32c
   specs:
-    ruby-gmail (0.2.2)
+    ruby-gmail (0.3.1)
       mail (>= 2.2.1)
       mime (>= 0.1)
       shared-mime-info
@@ -10,44 +10,46 @@ GIT
 GEM
   remote: http://rubygems.org/
   specs:
-    activesupport (3.2.13)
-      i18n (= 0.6.1)
-      multi_json (~> 1.0)
+    activesupport (4.2.5.1)
+      i18n (~> 0.7)
+      json (~> 1.7, >= 1.7.7)
+      minitest (~> 5.1)
+      thread_safe (~> 0.3, >= 0.3.4)
+      tzinfo (~> 1.1)
     coderay (1.1.0)
     gadfly (0.0.1)
-    httparty (0.13.0)
+    httparty (0.13.7)
       json (~> 1.8)
       multi_xml (>= 0.5.2)
-    i18n (0.6.1)
-    json (1.8.1)
-    mail (2.4.4)
-      i18n (>= 0.4.0)
-      mime-types (~> 1.16)
-      treetop (~> 1.4.8)
+    i18n (0.7.0)
+    json (1.8.3)
+    mail (2.6.3)
+      mime-types (>= 1.16, < 3)
     method_source (0.8.2)
-    mime (0.1)
-    mime-types (1.19)
-    multi_json (1.7.2)
+    mime (0.4.3)
+    mime-types (2.99)
+    minitest (5.8.4)
     multi_xml (0.5.5)
-    polyglot (0.3.3)
-    pry (0.9.12.4)
-      coderay (~> 1.0)
-      method_source (~> 0.8)
+    pry (0.10.3)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
       slop (~> 3.4)
-    shared-mime-info (0.1)
-    slop (3.4.7)
-    treetop (1.4.12)
-      polyglot
-      polyglot (>= 0.3.1)
-    tzinfo (0.3.37)
+    shared-mime-info (0.2.5)
+    slop (3.6.0)
+    thread_safe (0.3.5)
+    tzinfo (1.2.2)
+      thread_safe (~> 0.1)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  activesupport (= 3.2.13)
+  activesupport (= 4.2.5.1)
   gadfly (= 0.0.1)
-  httparty (= 0.13.0)
+  httparty (= 0.13.7)
   pry
   ruby-gmail!
-  tzinfo (= 0.3.37)
+  tzinfo (= 1.2.2)
+
+BUNDLED WITH
+   1.11.2
