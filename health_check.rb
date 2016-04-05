@@ -15,13 +15,18 @@ while true
       code = HTTParty.get(site, timeout: TIMEOUT).code.to_i
       raise Net::HTTPBadResponse if code >= 400
       puts "#{site} up"
-    rescue Exception => e
-      Gmail.new(GMAIL[:username], GMAIL[:password]) do |gmail|
-        gmail.deliver do
-          to GMAIL[:notifications_addr]
-          subject "#{site} down"
-          body    "#{e.class}: #{e.to_s}"
+    rescue => e
+      begin
+        Gmail.new(GMAIL[:username], GMAIL[:password]) do |gmail|
+          gmail.deliver do
+            to GMAIL[:notifications_addr]
+            subject "#{site} down"
+            body "#{e.class}: #{e.to_s}"
+          end
         end
+      rescue => gmail_error
+        puts "gmail error: #{$!}"
+        puts gmail_error.backtrace
       end
     end
   end
