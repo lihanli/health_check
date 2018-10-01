@@ -10,25 +10,26 @@ GIT
 GEM
   remote: http://rubygems.org/
   specs:
-    activesupport (4.2.5.1)
-      i18n (~> 0.7)
-      json (~> 1.7, >= 1.7.7)
+    activesupport (5.2.1)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+      i18n (>= 0.7, < 2)
       minitest (~> 5.1)
-      thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     coderay (1.1.0)
+    concurrent-ruby (1.0.5)
     gadfly (0.0.1)
     httparty (0.13.7)
       json (~> 1.8)
       multi_xml (>= 0.5.2)
-    i18n (0.7.0)
-    json (1.8.3)
+    i18n (1.1.0)
+      concurrent-ruby (~> 1.0)
+    json (1.8.6)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
     method_source (0.8.2)
     mime (0.4.3)
     mime-types (2.99)
-    minitest (5.8.4)
+    minitest (5.11.3)
     multi_xml (0.5.5)
     pry (0.10.3)
       coderay (~> 1.1.0)
@@ -36,7 +37,7 @@ GEM
       slop (~> 3.4)
     shared-mime-info (0.2.5)
     slop (3.6.0)
-    thread_safe (0.3.5)
+    thread_safe (0.3.6)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
 
@@ -44,7 +45,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activesupport (= 4.2.5.1)
+  activesupport
   gadfly (= 0.0.1)
   httparty (= 0.13.7)
   pry
@@ -52,4 +53,4 @@ DEPENDENCIES
   tzinfo (= 1.2.2)
 
 BUNDLED WITH
-   1.11.2
+   1.12.5
